@@ -1,0 +1,41 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh issue view 1)",
+      "Bash(test -f .gitignore)",
+      "Bash(pip install -r requirements.txt)",
+      "Bash(python seed_data.py)",
+      "Bash(python app.py)",
+      "Bash(curl -X GET http://localhost:5000/ -w \"\\n\\nStatus: %{http_code}\\n\")",
+      "Bash(curl -X POST http://localhost:5000/api/register -H \"Content-Type: application/json\" -d \"{\"\"username\"\":\"\"testuser\"\",\"\"password\"\":\"\"testpass123\"\"}\" -w \"\\n\\nStatus: %{http_code}\\n\")",
+      "Bash(curl -X POST http://localhost:5000/api/login -H \"Content-Type: application/json\" -d \"{\"\"username\"\":\"\"admin\"\",\"\"password\"\":\"\"admin123\"\"}\" -c admin_cookies.txt -w \"\\n\\nStatus: %{http_code}\\n\")",
+      "Bash(curl -X POST http://localhost:5000/api/login -H \"Content-Type: application/json\" -d \"{\"\"username\"\":\"\"tanaka\"\",\"\"password\"\":\"\"password123\"\"}\" -c tanaka_cookies.txt -w \"\\n\\nStatus: %{http_code}\\n\")",
+      "Bash(curl -X GET http://localhost:5000/api/me -b tanaka_cookies.txt -w \"\\n\\nStatus: %{http_code}\\n\")",
+      "Bash(curl -X GET http://localhost:5000/api/books -b tanaka_cookies.txt -w \"\\n\\nStatus: %{http_code}\\n\")",
+      "Bash(curl -X POST http://localhost:5000/api/books -H \"Content-Type: application/json\" -d \"{\"\"title\"\":\"\"Test Book\"\",\"\"author\"\":\"\"Test Author\"\"}\" -b admin_cookies.txt -w \"\\n\\nStatus: %{http_code}\\n\")",
+      "Bash(curl -X GET http://localhost:5000/api/books/1 -b tanaka_cookies.txt -w \"\\n\\nStatus: %{http_code}\\n\")",
+      "Bash(curl -X POST http://localhost:5000/api/borrow -H \"Content-Type: application/json\" -d \"{\"\"book_id\"\":1}\" -b tanaka_cookies.txt -w \"\\n\\nStatus: %{http_code}\\n\")",
+      "Bash(curl -X POST http://localhost:5000/api/borrow -H \"Content-Type: application/json\" -d \"{\"\"book_id\"\":2}\" -b tanaka_cookies.txt -w \"\\n\\nStatus: %{http_code}\\n\")",
+      "Bash(curl -X POST http://localhost:5000/api/borrow -H \"Content-Type: application/json\" -d \"{\"\"book_id\"\":3}\" -b tanaka_cookies.txt -w \"\\n\\nStatus: %{http_code}\\n\")",
+      "Bash(curl -X POST http://localhost:5000/api/return -H \"Content-Type: application/json\" -d \"{\"\"book_id\"\":1}\" -b tanaka_cookies.txt -w \"\\n\\nStatus: %{http_code}\\n\")",
+      "Bash(curl -X GET http://localhost:5000/api/status/user/2 -b tanaka_cookies.txt -w \"\\n\\nStatus: %{http_code}\\n\")",
+      "Bash(curl -X GET http://localhost:5000/api/status/book/2 -b tanaka_cookies.txt -w \"\\n\\nStatus: %{http_code}\\n\")",
+      "Bash(curl -X GET http://localhost:5000/api/status/overdue -b tanaka_cookies.txt -w \"\\n\\nStatus: %{http_code}\\n\")",
+      "Bash(curl -X GET \"http://localhost:5000/api/status/history?user_id=2\" -b tanaka_cookies.txt -w \"\\n\\nStatus: %{http_code}\\n\")",
+      "Bash(curl -X POST http://localhost:5000/api/books -H \"Content-Type: application/json\" -d \"{\"\"title\"\":\"\"Unauthorized Book\"\",\"\"author\"\":\"\"Test\"\"}\" -b tanaka_cookies.txt -w \"\\n\\nStatus: %{http_code}\\n\")",
+      "Bash(curl -X POST http://localhost:5000/api/borrow -H \"Content-Type: application/json\" -d \"{\"\"book_id\"\":4}\" -b tanaka_cookies.txt -w \"\\n\\nStatus: %{http_code}\\n\")",
+      "Bash(curl -X POST http://localhost:5000/api/register -H \"Content-Type: application/json\" -d \"{\"\"username\"\":\"\"tanaka\"\",\"\"password\"\":\"\"test\"\"}\" -w \"\\n\\nStatus: %{http_code}\\n\")",
+      "Bash(curl -X POST http://localhost:5000/api/login -H \"Content-Type: application/json\" -d \"{\"\"username\"\":\"\"invalid\"\",\"\"password\"\":\"\"wrong\"\"}\" -w \"\\n\\nStatus: %{http_code}\\n\")",
+      "Bash(curl -X GET http://localhost:5000/api/books -w \"\\n\\nStatus: %{http_code}\\n\")",
+      "Bash(curl -X POST http://localhost:5000/api/borrow -H \"Content-Type: application/json\" -d \"{\"\"book_id\"\":5}\" -b tanaka_cookies.txt -w \"\\n\\nStatus: %{http_code}\\n\")",
+      "Bash(curl -X DELETE http://localhost:5000/api/books/2 -b admin_cookies.txt -w \"\\n\\nStatus: %{http_code}\\n\")",
+      "Bash(curl -X POST http://localhost:5000/api/logout -b tanaka_cookies.txt -w \"\\n\\nStatus: %{http_code}\\n\")",
+      "Bash(curl -s http://localhost:5000/)",
+      "Bash(python -m json.tool)",
+      "Bash(pip install Flask-CORS==4.0.0)",
+      "Bash(curl -s http://localhost:5000/api)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
